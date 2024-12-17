@@ -8,6 +8,10 @@
 body{
     background: url(images/bg.png) no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 body::after{
@@ -39,13 +43,14 @@ body > a:hover{
 .container{
     color: white;
     font-size: 2rem;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
     text-align: center;
+    padding: 20px;
 }
 
 header{
@@ -59,11 +64,14 @@ header h5:nth-child(1){
 
 .search-grp{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #search-input{
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     height: 50px;
     padding-left: 10px;
     font-size: 1.3rem;
@@ -102,13 +110,13 @@ button:hover{
 }
 
 .temperature{
-    font-size: 100px;
+    font-size: 15vw;
     text-shadow: 5px 5px 10px black;
     color: aqua;
 }
 
 #temperature-degree{
-    font-size: 200px;
+    font-size: 20vw;
     position: relative;
     line-height: 150%;
     text-shadow: 5px 5px 10px black;
@@ -117,9 +125,11 @@ button:hover{
 
 .details{
     font-size: 25px;
-    display: flex;
-    justify-content: space-between;
-    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
 }
 
 
@@ -127,7 +137,6 @@ button:hover{
     margin-bottom: 2rem;
     text-transform: capitalize;
     letter-spacing: 1px;
-    font-weight: bold;
     font-weight: 300;
     font-size: 1.5rem;
 }
@@ -180,11 +189,10 @@ button i{
 
     }
     #search-input, .loading{
-        width: 65%;
+        width: 90%;
     }
     .details{
-        width: 100%;
-        margin: 0 auto;
+        grid-template-columns: 1fr;
     }
     #temperature-degree{
         font-size: 20vw;
@@ -193,5 +201,25 @@ button i{
         font-size: 15vw;
     }
     
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    .container {
+        width: 80%;
+    }
+
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .container {
+        width: 70%;
+    }
+
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
